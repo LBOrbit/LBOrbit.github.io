@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Plot test</title>
+    <script src="https://cdn.plot.ly/plotly-3.0.0-rc.2.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <div id="gd"></div>
+    
+    <form id="family_chk">
+        <fieldset>
+            <legend>Family</legend>
+            <input type="checkbox" value="EarthMoon_PlanarL2.json" id="x2">
+            <label for='PlanarL2'>L2 Planar Lyapunov</label><br />
+            <input type="checkbox" value="EarthMoon_HaloL2.json" id="x3">
+            <label for='HaloL2'>L2 Halo</label><br />
+        </fieldset>
+    </form>
+    
+    <form id="param">
+        <fieldset>
+            <legend>Parametrization</legend> 
+                <label for="x-select">X axis:</label>          
+                <select name="x" id="x-select">
+                    <option value="jacobi">Jacobi constant</option>
+                    <option value="period">Period</option>
+                    <option value="apoapsis">Apoapsis</option>
+                    <option value="periapsis">Periapsis</option>
+                </select>  
+                <label for="y-select">Y axis:</label>             
+                <select name="y" id="y-select">
+                    <option value="period">Period</option>
+                    <option value="jacobi">Jacobi constant</option>
+                    <option value="periapsis">Periapsis</option>
+                    <option value="apoapsis">Apoapsis</option>
+                </select>        
+        </fieldset>
+    </form>
+
+    <script src="main.js" charset="utf-8"></script>
+    
+</body>
+</html>
