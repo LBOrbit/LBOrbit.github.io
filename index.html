@@ -11,10 +11,18 @@
     <form id="family_chk">
         <fieldset>
             <legend>Family</legend>
+            <input type="checkbox" value="EarthMoon_PlanarL1.json" id="x1">
+            <label for='PlanarL1'>L1 Planar Lyapunov</label><br />
             <input type="checkbox" value="EarthMoon_PlanarL2.json" id="x2">
             <label for='PlanarL2'>L2 Planar Lyapunov</label><br />
-            <input type="checkbox" value="EarthMoon_HaloL2.json" id="x3">
+            <input type="checkbox" value="EarthMoon_VerticalL1.json" id="x3">
+            <label for='VerticalL1'>L1 Vertical Lyapunov</label><br />
+            <input type="checkbox" value="EarthMoon_VerticalL2.json" id="x4">
+            <label for='VerticalL2'>L2 Vertical Lyapunov</label><br />
+            <input type="checkbox" value="EarthMoon_HaloL2.json" id="x5">
             <label for='HaloL2'>L2 Halo</label><br />
+
+
         </fieldset>
     </form>
     
@@ -25,15 +33,46 @@
                 <select name="x" id="x-select">
                     <option value="jacobi">Jacobi constant</option>
                     <option value="period">Period</option>
-                    <option value="apoapsis">Apoapsis</option>
-                    <option value="periapsis">Periapsis</option>
+                    <option value="apoapsis_b">Apoapsis, secondary</option>
+                    <option value="periapsis_b">Periapsis, secondary</option>
+                    <option value="apoapsis_a">Apoapsis, primary</option>
+                    <option value="periapsis_a">Periapsis, primary</option>
+                    <option value="apoapsis_1">Apoapsis, L1</option>
+                    <option value="periapsis_1">Periapsis, L1</option>
+                    <option value="apoapsis_2">Apoapsis, L2</option>
+                    <option value="periapsis_2">Periapsis, L2</option>
+                    <option value="apoapsis_3">Apoapsis, L3</option>
+                    <option value="periapsis_3">Periapsis, L3</option>
+                    <option value="apoapsis_4">Apoapsis, L4</option>
+                    <option value="periapsis_4">Periapsis, L4</option>
+                    <option value="apoapsis_5">Apoapsis, L5</option>
+                    <option value="periapsis_5">Periapsis, L5</option>
+                    <option value="alpha">Alpha</option>
+                    <option value="beta">Beta</option>
+                    <option value="param">General parameter</option>
+
                 </select>  
                 <label for="y-select">Y axis:</label>             
                 <select name="y" id="y-select">
-                    <option value="period">Period</option>
                     <option value="jacobi">Jacobi constant</option>
-                    <option value="periapsis">Periapsis</option>
-                    <option value="apoapsis">Apoapsis</option>
+                    <option value="period">Period</option>
+                    <option value="apoapsis_b">Apoapsis, secondary</option>
+                    <option value="periapsis_b">Periapsis, secondary</option>
+                    <option value="apoapsis_a">Apoapsis, primary</option>
+                    <option value="periapsis_a">Periapsis, primary</option>
+                    <option value="apoapsis_1">Apoapsis, L1</option>
+                    <option value="periapsis_1">Periapsis, L1</option>
+                    <option value="apoapsis_2">Apoapsis, L2</option>
+                    <option value="periapsis_2">Periapsis, L2</option>
+                    <option value="apoapsis_3">Apoapsis, L3</option>
+                    <option value="periapsis_3">Periapsis, L3</option>
+                    <option value="apoapsis_4">Apoapsis, L4</option>
+                    <option value="periapsis_4">Periapsis, L4</option>
+                    <option value="apoapsis_5">Apoapsis, L5</option>
+                    <option value="periapsis_5">Periapsis, L5</option>
+                    <option value="alpha">Alpha</option>
+                    <option value="beta">Beta</option>
+                    <option value="param">General parameter</option>
                 </select>        
         </fieldset>
     </form>
