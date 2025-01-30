@@ -2,38 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Plot test</title>
+    <title>Plot All Curves</title>
     <script src="https://cdn.plot.ly/plotly-3.0.0-rc.2.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="gd"></div>
-    
+    <h1>Orbits of the Circular Restricted Three Body System: Earth Moon</h1>
+    <div class="parent"> 
+    <div class='controls'>
     <form id="family_chk">
         <fieldset>
             <legend>Family</legend>
-            <input type="checkbox" value="EarthMoon_PlanarL1.json" id="x1">
+            <input type="checkbox" value="EarthMoon_PlanarL1" id="x1">
             <label for='PlanarL1'>L1 Planar Lyapunov</label><br />
-            <input type="checkbox" value="EarthMoon_PlanarL2.json" id="x2">
+            <input type="checkbox" value="EarthMoon_PlanarL2" id="x2">
             <label for='PlanarL2'>L2 Planar Lyapunov</label><br />
-            <input type="checkbox" value="EarthMoon_VerticalL1.json" id="x3">
+            <input type="checkbox" value="EarthMoon_VerticalL1" id="x3">
             <label for='VerticalL1'>L1 Vertical Lyapunov</label><br />
-            <input type="checkbox" value="EarthMoon_VerticalL2.json" id="x4">
+            <input type="checkbox" value="EarthMoon_VerticalL2" id="x4">
             <label for='VerticalL2'>L2 Vertical Lyapunov</label><br />
-            <input type="checkbox" value="EarthMoon_HaloL2.json" id="x5">
+            <input type="checkbox" value="EarthMoon_HaloL2" id="x5">
             <label for='HaloL2'>L2 Halo</label><br />
-            <input type="checkbox" value="EarthMoon_AxialL2.json" id="x6">
+            <input type="checkbox" value="EarthMoon_HaloL1" id="x5">
+            <label for='HaloL1'>L1 Halo</label><br />
+            <input type="checkbox" value="EarthMoon_AxialL2" id="x6">
             <label for='AxialL2'>L2 Axial</label><br />
-            <input type="checkbox" value="EarthMoon_DragonflyL2.json" id="x7">
+            <input type="checkbox" value="EarthMoon_AxialL1" id="x6">
+            <label for='AxialL1'>L1 Axial</label><br />
+            <input type="checkbox" value="EarthMoon_DragonflyL2" id="x7">
             <label for='DragonflyL2'>L2 Dragonfly</label><br />
-            <input type="checkbox" value="EarthMoon_CoDragonflyL2.json" id="x8">
+            <input type="checkbox" value="EarthMoon_CoDragonflyL2" id="x8">
             <label for='CoDragonflyL2'>L2 CoDragonfly</label><br />
-            <input type="checkbox" value="EarthMoon_DamselflyL2.json" id="x9">
+            <input type="checkbox" value="EarthMoon_DamselflyL2" id="x9">
             <label for='DamselflyL2'>L2 Damselfly</label><br />
-            <input type="checkbox" value="EarthMoon_ButterflyL2.json" id="x10">
+            <input type="checkbox" value="EarthMoon_ButterflyL2" id="x10">
             <label for='ButterflyL2'>L2 Butterfly</label><br />
+            <input type="checkbox" value="EarthMoon_ShortPeriodL45" id="x11">
+            <label for='ShortPeriodL45'>L4/L5 Short Period</label><br />
+            <input type="checkbox" value="EarthMoon_VerticalL45" id="x12">
+            <label for='VerticalL45'>L4/L5 Vertical</label><br />
+            <input type="checkbox" value="EarthMoon_W45" id="x13">
+            <label for='WL45'>W4/W5 Family</label><br />
+            <input type="checkbox" value="EarthMoon_DRO" id="x14">
+            <label for='DRO'>DRO</label><br />
+            <input type="checkbox" value="EarthMoon_B2" id="x15">
+            <label for='B2'>B2 Family</label><br />
         </fieldset>
     </form>
-    
+
     <form id="param">
         <fieldset>
             <legend>Parametrization</legend> 
@@ -84,8 +100,87 @@
                 </select>        
         </fieldset>
     </form>
+</div>
 
-    <script src="main.js" charset="utf-8"></script>
+<div class='paraplot'>
+    <form id="family_select">
+        <fieldset>
+            <legend>Show Family</legend>
+            <label for="family-dropdown">Choose a family:</label>
+            <select id="family-dropdown">
+                <option value="EarthMoon_PlanarL1">L1 Planar Lyapunov</option>
+                <option value="EarthMoon_PlanarL2">L2 Planar Lyapunov</option>
+                <option value="EarthMoon_VerticalL1">L1 Vertical Lyapunov</option>
+                <option value="EarthMoon_VerticalL2">L2 Vertical Lyapunov</option>
+                <option value="EarthMoon_HaloL2">L2 Halo</option>
+                <option value="EarthMoon_HaloL1">L1 Halo</option>
+                <option value="EarthMoon_AxialL2">L2 Axial</option>
+                <option value="EarthMoon_AxialL1">L1 Axial</option>
+                <option value="EarthMoon_DragonflyL2">L2 Dragonfly</option>
+                <option value="EarthMoon_CoDragonflyL2">L2 CoDragonfly</option>
+                <option value="EarthMoon_DamselflyL2">L2 Damselfly</option>
+                <option value="EarthMoon_ButterflyL2">L2 Butterfly</option>
+                <option value="EarthMoon_ShortPeriodL45">L4/L5 Short Period</option>
+                <option value="EarthMoon_VerticalL45">L4/L5 Vertical</option>
+                <option value="EarthMoon_W45">W4/W5 Family</option>
+                <option value="EarthMoon_DRO">DRO</option>
+                <option value="EarthMoon_B2">B2 Family</option>
+            </select>
+        </fieldset>
+    </form>
     
+    <form id="orbit_select">
+        <fieldset>    
+        <legend>Show Orbit</legend>
+    <div>
+        <input type="range" id="orbit" name="orbit" min="0" max="489" value="0" step="1" />
+        <label for="orbit">Visible Orbit</label>
+    </div>
+    
+    <div>
+        <label for="orbitInput">Enter Orbit Index:</label>
+        <input type="number" id="orbitInput" min="0" max="489" step="1" placeholder="e.g., 0" />
+    </div>
+    </fieldset>
+    </form>
+
+    <form id="range_select">
+    <fieldset> 
+        <legend>Range</legend>
+        <label for="xMin">X Min:</label>
+        <input type="number" id="xMin" placeholder="e.g., -10" step="0.01"/>
+        <label for="xMax">X Max:</label>
+        <input type="number" id="xMax" placeholder="e.g., 10" step="0.01"/>
+        <br />
+        <label for="yMin">Y Min:</label>
+        <input type="number" id="yMin" placeholder="e.g., -10" step="0.01"/>
+        <label for="yMax">Y Max:</label>
+        <input type="number" id="yMax" placeholder="e.g., 10" step="0.01"/>
+        <br />
+        <label for="zMin">Z Min:</label>
+        <input type="number" id="zMin" placeholder="e.g., -10" step="0.01"/>
+        <label for="zMax">Z Max:</label>
+        <input type="number" id="zMax" placeholder="e.g., 10" step="0.01"/>
+        <br />
+        <button id="applyRange">Apply Range</button>
+    </fieldset>
+</form>
+
+
+</div>
+
+    <!-- First Plot -->
+    <div id="gd11" class='gd11'></div>
+
+    <!-- Second Plot -->
+    <div id="gd" class='gd'></div>
+
+<!-- New section for point_x information -->
+<div id="point-info" class='params'>
+    <h3>Point Information</h3>
+    <p id="point-data">Move the slider to see details about the selected point.</p>
+</div>
+
+<script src="main.js" charset="utf-8"></script>
 </body>
 </html>
