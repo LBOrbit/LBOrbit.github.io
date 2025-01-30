@@ -154,39 +154,39 @@ function applyAxisRanges() {
     Plotly.relayout(gd, update);
 }
 
-document.getElementById('orbit').addEventListener('input', async function(event) {
-    const orbitIndex = parseInt(event.target.value);
-    const selectedFamily = document.getElementById('family-dropdown').value;
-    const dataset = await getData(selectedFamily);
+// document.getElementById('orbit').addEventListener('input', async function(event) {
+//     const orbitIndex = parseInt(event.target.value);
+//     const selectedFamily = document.getElementById('family-dropdown').value;
+//     const dataset = await getData(selectedFamily);
     
-    const xlabel = document.getElementById('x-select').value;
-    const ylabel = document.getElementById('y-select').value;
+//     const xlabel = document.getElementById('x-select').value;
+//     const ylabel = document.getElementById('y-select').value;
     
-    const xValue = dataset[xlabel][orbitIndex];
-    const yValue = dataset[ylabel][orbitIndex];
+//     const xValue = dataset[xlabel][orbitIndex];
+//     const yValue = dataset[ylabel][orbitIndex];
     
-    const newPoint = {
-        x: [xValue],
-        y: [yValue],
-        mode: 'markers',
-        type: 'scatter',
-        marker: { size: 10, color: 'red' },
-        name: `Current Orbit`
-    };
+//     const newPoint = {
+//         x: [xValue],
+//         y: [yValue],
+//         mode: 'markers',
+//         type: 'scatter',
+//         marker: { size: 10, color: 'red' },
+//         name: `Current Orbit`
+//     };
     
-    // Get the existing plot data
-    const currentData = gd11.data ? gd11.data.slice(0) : [];
+//     // Get the existing plot data
+//     const currentData = gd11.data ? gd11.data.slice(0) : [];
     
-    // Remove previous orbit point if it exists (assumes last trace is the orbit point)
-    if (currentData.length > 0 && currentData[currentData.length - 1].name.startsWith('Current Orbit')) {
-        currentData.pop();
-    }
+//     // Remove previous orbit point if it exists (assumes last trace is the orbit point)
+//     if (currentData.length > 0 && currentData[currentData.length - 1].name.startsWith('Current Orbit')) {
+//         currentData.pop();
+//     }
     
-    currentData.push(newPoint);
+//     currentData.push(newPoint);
     
-    Plotly.react("gd11", currentData, gd11.layout);
+//     Plotly.react("gd11", currentData, gd11.layout);
     
-});
+// });
 
 function generateXYZ(dataset, idx) {
     return {
@@ -317,6 +317,34 @@ async function updateVisibility(selectedIndex) {
         : `<strong>No data found for ${key}</strong>`;
     document.getElementById('point-data').innerHTML = pointInfo;
     
+    const xlabel = document.getElementById('x-select').value;
+    const ylabel = document.getElementById('y-select').value;
+    
+    const xValue = dataset[xlabel][selectedIndex];
+    const yValue = dataset[ylabel][selectedIndex];
+    
+    const newPoint = {
+        x: [xValue],
+        y: [yValue],
+        mode: 'markers',
+        type: 'scatter',
+        marker: { size: 10, color: 'red' },
+        name: `Current Orbit`
+    };
+    
+    // Get the existing plot data
+    const currentData = gd11.data ? gd11.data.slice(0) : [];
+    
+    // Remove previous orbit point if it exists (assumes last trace is the orbit point)
+    if (currentData.length > 0 && currentData[currentData.length - 1].name.startsWith('Current Orbit')) {
+        currentData.pop();
+    }
+    
+    currentData.push(newPoint);
+    
+    Plotly.react("gd11", currentData, gd11.layout);
+
+    
     locked = false;
 }
 
@@ -351,6 +379,7 @@ document.getElementById('family-dropdown').addEventListener('change', plotAllCur
 
 document.getElementById('orbit').addEventListener('input', (event) => {
     const selectedIndex = parseInt(event.target.value, 10);
+    document.getElementById('orbitInput').value = selectedIndex;
     updateVisibility(selectedIndex);
 });
 
