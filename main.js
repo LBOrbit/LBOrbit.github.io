@@ -1,4 +1,4 @@
-let databaseIndex = 14
+let databaseIndex = 15
 async function getData_old(func) {
     return fetch(func)
         .then(response => response.json())
